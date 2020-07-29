@@ -5,8 +5,12 @@ using static CoroutineHelper;
 public class PlayerController : MonoBehaviour
 {
     IEnumerator moveCoroutine;
+    Vector2 moveDirection;
     Vector2 moveDistance;
     const float MoveDuration = 0.1f;
+
+    IEnumerator inputDelayCoroutine;
+    const float InputRepeatDelay = 0.25f;
 
     void Awake()
     {
@@ -16,24 +20,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+        UpdateMoveDirection();
+
+        if (moveDirection.x != 0 || moveDirection.y != 0)
         {
-            if (moveCoroutine == null)
+            if (moveCoroutine == null && inputDelayCoroutine == null)
             {
-                moveCoroutine = Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+                inputDelayCoroutine = Wait(InputRepeatDelay);
+                StartCoroutine(inputDelayCoroutine);
+
+                moveCoroutine = Move(moveDirection);
                 StartCoroutine(moveCoroutine);
             }
         }
     }
 
+    void UpdateMoveDirection()
+    {
+        moveDirection.x = Input.GetAxisRaw("Horizontal");
+        moveDirection.y = Input.GetAxisRaw("Vertical");
+
+        //prioritize y-axis if both direction.x and .y are changed
+        if (Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.y)) moveDirection.y = 0;
+        else moveDirection.x = 0;
+    }
+
+    IEnumerator Wait(float amount)
+    {
+        yield return WaitForSeconds(amount);
+        inputDelayCoroutine = null;
+    }
+
     IEnumerator Move(Vector2 direction)
     {
-        //prioritize y-axis if both direction.x and .y are changed
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) direction.y = 0;
-        else direction.x = 0;
-
-        direction.Normalize();
-
         float currentLerpTime = 0;
         Vector2 startPos = transform.position;
         Vector2 endPos = (Vector2)transform.position + (moveDistance * direction);
