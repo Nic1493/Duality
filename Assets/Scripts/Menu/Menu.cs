@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
     protected void OpenMenu(Canvas menu)
     {
         menu.enabled = true;
+        menu.GetComponent<Menu>().enabled = true;
         EventSystem.current.SetSelectedGameObject(menu.GetComponent<Menu>().lastSelectedObject.gameObject);
     }
 
@@ -24,6 +25,7 @@ public class Menu : MonoBehaviour
     {
         lastSelectedObject = EventSystem.current.currentSelectedGameObject;
         menu.enabled = false;
+        enabled = false;
     }
 
     public virtual void SwitchMenu(Canvas otherMenu)
