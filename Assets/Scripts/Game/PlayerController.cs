@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     IEnumerator moveCoroutine;
     Vector2 moveDirection;
-    float moveDistance;
+    Vector2 moveDistance;
     const float MoveDuration = 0.1f;
 
     IEnumerator inputDelayCoroutine;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         //set moveDistance to always equal sprite's dimensions
-        moveDistance = GetComponent<SpriteRenderer>().bounds.size.x;
+        moveDistance = GetComponent<SpriteRenderer>().bounds.size;
     }
 
     void Update()
@@ -47,9 +47,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsTouchingCollider()
     {
-        Ray2D ray = new Ray2D(transform.position, moveDirection);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, moveDistance);
-
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, moveDistance, 0, moveDirection, (moveDirection * moveDistance).magnitude);
         return hit.collider != null;
     }
 
