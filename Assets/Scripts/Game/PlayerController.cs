@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     IEnumerator moveCoroutine;
     Vector2 moveDirection;
-    Vector2 moveDistance;
+    float moveDistance;
     const float MoveDuration = 0.1f;
 
     IEnumerator inputDelayCoroutine;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         //set moveDistance to always equal sprite's dimensions
-        moveDistance = GetComponent<SpriteRenderer>().bounds.size;
+        moveDistance = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
     void Update()
@@ -45,6 +45,14 @@ public class PlayerController : MonoBehaviour
         else moveDirection.x = 0;
     }
 
+    bool IsTouchingCollider()
+    {
+        Ray2D ray = new Ray2D(transform.position, moveDirection);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, moveDistance);
+
+        return hit.collider != null;
+    }
+
     IEnumerator Wait(float amount)
     {
         yield return WaitForSeconds(amount);
@@ -53,18 +61,20 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Move(Vector2 direction)
     {
-        float currentLerpTime = 0;
-        Vector2 startPos = transform.position;
-        Vector2 endPos = (Vector2)transform.position + (moveDistance * direction);
-
-        while (currentLerpTime < MoveDuration)
+        if (!IsTouchingCollider())
         {
-            yield return EndOfFrame;
-            currentLerpTime += Time.deltaTime;
+            float currentLerpTime = 0;
+            Vector2 startPos = transform.position;
+            Vector2 endPos = (Vector2)transform.position + (direction * moveDistance);
 
-            transform.position = Vector2.Lerp(startPos, endPos, currentLerpTime / MoveDuration);
+            while (currentLerpTime < MoveDuration)
+            {
+                yield return EndOfFrame;
+                currentLerpTime += Time.deltaTime;
+
+                transform.position = Vector2.Lerp(startPos, endPos, currentLerpTime / MoveDuration);
+            }
         }
-
         moveCoroutine = null;
     }
 }
