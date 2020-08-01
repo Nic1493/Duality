@@ -1,4 +1,6 @@
-﻿public class ClearMenu : Menu
+﻿using UnityEngine.SceneManagement;
+
+public class ClearMenu : Menu
 {
     protected override void Awake()
     {
@@ -9,5 +11,15 @@
     void OnLevelClear()
     {
         OpenMenu(thisMenu);
+    }
+
+    public void OnSelectRetry()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnSelectNextLevel()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

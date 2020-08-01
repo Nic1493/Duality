@@ -16,8 +16,16 @@ public class PlayerController : MonoBehaviour
     {
         //set moveDistance to always equal sprite's dimensions
         moveDistance = GetComponent<SpriteRenderer>().bounds.size;
+        GetComponent<BoxCollider2D>().size = moveDistance / 2;
 
-        FindObjectOfType<Goal>().levelClearedAction += OnLevelClear;
+        try
+        {
+            FindObjectOfType<Goal>().levelClearedAction += OnLevelClear;
+        }
+        catch(System.NullReferenceException)
+        {
+            Debug.LogError("no goal found in level.");
+        }
     }
 
     void Update()
