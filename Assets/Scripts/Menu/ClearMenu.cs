@@ -1,22 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ClearMenu : Menu
+﻿public class ClearMenu : Menu
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Awake()
     {
-        thisMenu.enabled = false;
+        base.Awake();
+        FindObjectOfType<Goal>().levelClearedAction += OnLevelClear;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    void OnLevelClear()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            OpenMenu(thisMenu);
-        }
-
+        OpenMenu(thisMenu);
     }
 }

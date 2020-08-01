@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     {
         //set moveDistance to always equal sprite's dimensions
         moveDistance = GetComponent<SpriteRenderer>().bounds.size;
+
+        FindObjectOfType<Goal>().levelClearedAction += OnLevelClear;
     }
 
     void Update()
@@ -47,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsTouchingCollider()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, moveDistance, 0, moveDirection, ((moveDirection * moveDistance).magnitude/2));
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, moveDistance / 2, 0, moveDirection, (moveDirection * moveDistance).magnitude / 2);
         return hit.collider != null;
     }
 
@@ -74,5 +76,10 @@ public class PlayerController : MonoBehaviour
             }
         }
         moveCoroutine = null;
+    }
+
+    void OnLevelClear()
+    {
+        enabled = false;
     }
 }
