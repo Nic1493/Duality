@@ -19,9 +19,4 @@ public class ClearMenu : Menu
         }
 
     }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        Debug.Log("GameObject1 collided with " + col.name);
-    }
 }

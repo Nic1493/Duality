@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsTouchingCollider()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, moveDistance, 0, moveDirection, (moveDirection * moveDistance).magnitude);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, moveDistance, 0, moveDirection, ((moveDirection * moveDistance).magnitude/2));
         return hit.collider != null;
     }
 
