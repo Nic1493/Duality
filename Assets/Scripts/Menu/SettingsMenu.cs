@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SettingsMenu : Menu
 {
@@ -9,12 +8,7 @@ public class SettingsMenu : Menu
     [Space]
 
     [SerializeField] Slider volumeSlider;
-    [SerializeField] TextMeshProUGUI volumeText;
-
-    [Space]
-
     [SerializeField] Slider repeatDelaySlider;
-    [SerializeField] TextMeshProUGUI repeatDelayText;
 
     protected override void Awake()
     {
@@ -30,22 +24,30 @@ public class SettingsMenu : Menu
 
     void UpdateVolumeSlider()
     {
-        volumeText.text = volumeSlider.value.ToString();
+        volumeSlider.value = PlayerSettings.Instance.volume;
     }
 
     void UpdateRepeatDelaySlider()
     {
-        repeatDelayText.text = repeatDelaySlider.value.ToString();
+        repeatDelaySlider.value = PlayerSettings.Instance.repeatDelay;
     }
 
     public void OnChangeVolume()
     {
+        PlayerSettings.Instance.volume = (int)volumeSlider.value;
         UpdateVolumeSlider();
     }
 
     public void OnChangeRepeatDelay()
     {
+        PlayerSettings.Instance.repeatDelay = repeatDelaySlider.value;
         UpdateRepeatDelaySlider();
+    }
+
+    public override void SwitchMenu(Canvas otherMenu)
+    {
+        base.SwitchMenu(otherMenu);
+        FileHandler.SaveSettings();
     }
 
     void Update()
