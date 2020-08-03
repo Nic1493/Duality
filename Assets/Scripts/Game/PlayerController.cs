@@ -43,6 +43,15 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(moveCoroutine);
             }
         }
+
+        if (moveDirection == Vector2.zero)
+        {
+            if (inputDelayCoroutine != null)
+            {
+                StopCoroutine(inputDelayCoroutine);
+                inputDelayCoroutine = null;
+            }
+        }
     }
 
     void UpdateMoveDirection()
