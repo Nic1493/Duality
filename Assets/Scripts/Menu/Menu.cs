@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
@@ -32,10 +31,5 @@ public class Menu : MonoBehaviour
     {
         CloseMenu(thisMenu);
         OpenMenu(otherMenu);
-    }
-
-    public void LoadScene(int sceneIndex)
-    {
-        SceneManager.LoadScene(sceneIndex);
     }
 }
