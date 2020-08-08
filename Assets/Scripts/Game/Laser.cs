@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    void Awake()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        print("hit " + other.name);
     }
 }
