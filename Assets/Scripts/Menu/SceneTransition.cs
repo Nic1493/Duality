@@ -9,12 +9,7 @@ public class SceneTransition : MonoBehaviour
 
     void Awake()
     {
-        FadeSceneIn();
-    }
-
-    void FadeSceneIn()
-    {
-        StartCoroutine(FadeIn());
+        StartCoroutine(Fade(0f, 1f));
     }
 
     public void FadeSceneOut(int nextSceneIndex)
@@ -22,33 +17,22 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(FadeOut(nextSceneIndex));
     }
 
-    IEnumerator FadeIn()
+    IEnumerator Fade(float start, float end)
     {
-        float currentLerpTime = 0;
-        float totalLerpTime = 1;
+        float currentLerpTime = 0f;
 
-        while (currentLerpTime < totalLerpTime)
+        while (currentLerpTime < 1f)
         {
-            yield return EndOfFrame;
-            currentLerpTime += Time.deltaTime;
+            transitionMat.SetFloat("_AnimationTime", Mathf.Lerp(start, end, currentLerpTime));
 
-            transitionMat.SetFloat("_AnimationTime", Mathf.Lerp(0, totalLerpTime, currentLerpTime / totalLerpTime));
+            currentLerpTime += Time.deltaTime;
+            yield return EndOfFrame;
         }
     }
 
     IEnumerator FadeOut(int nextSceneIndex)
     {
-        float currentLerpTime = 0;
-        float totalLerpTime = 1;
-
-        while (currentLerpTime < 1)
-        {
-            yield return EndOfFrame;
-            currentLerpTime += Time.deltaTime;
-
-            transitionMat.SetFloat("_AnimationTime", Mathf.Lerp(totalLerpTime, 0, currentLerpTime / totalLerpTime));
-        }
-
+        yield return Fade(1f, 0f);
         SceneManager.LoadScene(nextSceneIndex);
     }
 }
