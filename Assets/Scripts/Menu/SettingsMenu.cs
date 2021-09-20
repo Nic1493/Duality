@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SettingsMenu : Menu
 {
-    [SerializeField] Canvas mainMenu;
+    [SerializeField] Button backButton;
 
     [Space]
 
@@ -44,17 +44,9 @@ public class SettingsMenu : Menu
         UpdateRepeatDelaySlider();
     }
 
-    public override void SwitchMenu(Canvas otherMenu)
-    {
-        base.SwitchMenu(otherMenu);
-        FileHandler.SaveSettings();
-    }
-
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))
-        {
-            SwitchMenu(mainMenu);
-        }
+            backButton.OnPointerClick(eventData);
     }
 }

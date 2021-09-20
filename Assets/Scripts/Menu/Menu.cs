@@ -1,35 +1,58 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Menu : MonoBehaviour
+[RequireComponent(typeof(Canvas))]
+public abstract class Menu : MonoBehaviour
 {
     protected Canvas thisMenu;
-    public GameObject lastSelectedObject { get; private set; }
+    protected PointerEventData eventData = new PointerEventData(EventSystem.current);
 
     protected virtual void Awake()
     {
         thisMenu = GetComponent<Canvas>();
-        lastSelectedObject = thisMenu.GetComponentsInChildren<Selectable>()[0].gameObject;
     }
 
-    protected void OpenMenu(Canvas menu)
+    public void Open(GameObject selectedGameObject)
     {
-        menu.enabled = true;
-        menu.GetComponent<Menu>().enabled = true;
-        EventSystem.current.SetSelectedGameObject(menu.GetComponent<Menu>().lastSelectedObject.gameObject);
+        thisMenu.enabled = true;
+
+        if (thisMenu.TryGetComponent(out Menu m))
+            m.Enable(selectedGameObject);   
     }
 
-    protected void CloseMenu(Canvas menu)
+    public void Close()
     {
-        lastSelectedObject = EventSystem.current.currentSelectedGameObject;
-        menu.enabled = false;
+        thisMenu.enabled = false;
+        Disable();
+    }
+
+    public void Enable(GameObject selectedGameObject)
+    {
+        if (TryGetComponent(out CanvasGroup cg))
+        {
+            cg.interactable = true;
+            cg.blocksRaycasts = true;
+        }
+
+        enabled = true;
+
+        if (selectedGameObject != null)
+            EventSystem.current.SetSelectedGameObject(selectedGameObject);
+    }
+
+    public void Disable()
+    {
+        if (TryGetComponent(out CanvasGroup cg))
+        {
+            cg.interactable = false;
+            cg.blocksRaycasts = false;
+        }
+
         enabled = false;
     }
 
-    public virtual void SwitchMenu(Canvas otherMenu)
-    {
-        CloseMenu(thisMenu);
-        OpenMenu(otherMenu);
+    protected void LoadScene(int sceneIndex)
+    { 
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 }

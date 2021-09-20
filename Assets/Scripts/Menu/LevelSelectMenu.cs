@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelectMenu : Menu
 {
-    [SerializeField] Canvas mainMenu;
+    [SerializeField] Button backButton;
 
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))
-        {
-            SwitchMenu(mainMenu);
-        }
+            backButton.OnPointerClick(eventData);        
     }
 }
