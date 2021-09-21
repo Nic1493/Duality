@@ -3,45 +3,30 @@ using UnityEngine.UI;
 
 public class SettingsMenu : Menu
 {
+    [SerializeField] PlayerSettings playerSettings;
     [SerializeField] Button backButton;
-
-    [Space]
-
     [SerializeField] Slider volumeSlider;
-    [SerializeField] Slider repeatDelaySlider;
 
     protected override void Awake()
     {
         base.Awake();
-        InitSliders();
+        InitUIObjects();
     }
 
-    void InitSliders()
+    void InitUIObjects()
     {
         UpdateVolumeSlider();
-        UpdateRepeatDelaySlider();
     }
 
     void UpdateVolumeSlider()
     {
-        volumeSlider.value = PlayerSettings.Instance.volume;
-    }
-
-    void UpdateRepeatDelaySlider()
-    {
-        repeatDelaySlider.value = PlayerSettings.Instance.repeatDelay;
+        volumeSlider.value = playerSettings.Volume;
     }
 
     public void OnChangeVolume()
     {
-        PlayerSettings.Instance.volume = (int)volumeSlider.value;
+        playerSettings.Volume = (int)volumeSlider.value;
         UpdateVolumeSlider();
-    }
-
-    public void OnChangeRepeatDelay()
-    {
-        PlayerSettings.Instance.repeatDelay = repeatDelaySlider.value;
-        UpdateRepeatDelaySlider();
     }
 
     void Update()

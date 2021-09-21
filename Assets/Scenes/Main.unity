@@ -4586,9 +4586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78375091251dead488a927c774c54388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButton: {fileID: 0}
+  playerSettings: {fileID: 11400000, guid: c4335282dc86bd34fba11fc90abf26c6, type: 2}
+  backButton: {fileID: 2056711060}
   volumeSlider: {fileID: 2072284456}
-  repeatDelaySlider: {fileID: 602540735}
 --- !u!114 &1655081325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5841,6 +5841,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Repeat delay slider
       objectReference: {fileID: 0}
+    - target: {fileID: 5762983242744082950, guid: 02becd27bf7d1554dbf5b002bc0def1e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5762983242744082952, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
@@ -5989,17 +5994,17 @@ PrefabInstance:
     - target: {fileID: 5762983242272205618, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5762983242272205618, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5762983242272205618, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3367103235214258969, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}
@@ -6014,12 +6019,12 @@ PrefabInstance:
     - target: {fileID: 7570603818686655261, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 403.08
       objectReference: {fileID: 0}
     - target: {fileID: 7570603818686655261, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 56.26
       objectReference: {fileID: 0}
     - target: {fileID: 7570603817054424302, guid: 02becd27bf7d1554dbf5b002bc0def1e,
         type: 3}

@@ -1,20 +1,12 @@
-﻿[System.Serializable]
-public class PlayerSettings
+﻿using UnityEngine;
+
+[CreateAssetMenu]
+public class PlayerSettings : ScriptableObject
 {
-    public static readonly PlayerSettings Instance = new PlayerSettings();
-
-    public int volume;
-    public float repeatDelay;
-
-    public PlayerSettings()
+    [SerializeField] IntObject volume;
+    public int Volume
     {
-        volume = 10;
-        repeatDelay = 10;
-    }
-
-    public void UpdateSettings(PlayerSettings ps)
-    {
-        volume = ps.volume;
-        repeatDelay = ps.repeatDelay;
+        get => volume.value;
+        set => volume.value = value;
     }
 }
