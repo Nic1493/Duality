@@ -12,9 +12,24 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(Fade(0f, 1f));
     }
 
-    public void FadeSceneOut(int nextSceneIndex)
+    private void FadeSceneOut(int nextSceneIndex)
     {
         StartCoroutine(FadeOut(nextSceneIndex));
+    }
+
+    public void OnNextLevelPressed()
+    {
+        FadeSceneOut(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void OnRetryPressed()
+    {
+        FadeSceneOut(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnMainMenuPressed()
+    {
+        FadeSceneOut(0);
     }
 
     IEnumerator Fade(float start, float end)

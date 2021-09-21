@@ -5769,7 +5769,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -5784,7 +5784,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnNextLevelPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -5794,7 +5794,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6700,7 +6700,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6715,7 +6715,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnMainMenuPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6943,7 +6943,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -7279,7 +7279,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -7294,7 +7294,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnRetryPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -7304,7 +7304,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}

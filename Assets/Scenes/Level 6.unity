@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5769,7 +5769,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -5784,7 +5784,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnNextLevelPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -5794,7 +5794,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6700,7 +6700,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6715,7 +6715,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnMainMenuPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6943,7 +6943,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -7281,7 +7281,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -7296,7 +7296,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnRetryPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -7306,7 +7306,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -7432,7 +7432,7 @@ PrefabInstance:
     - target: {fileID: 3044883417870237335, guid: d21b8b0fe68b8fe4988b7a25d54506bf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3044883417870237330, guid: d21b8b0fe68b8fe4988b7a25d54506bf,
         type: 3}
