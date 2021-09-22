@@ -12,24 +12,10 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(Fade(0f, 1f));
     }
 
-    private void FadeSceneOut(int nextSceneIndex)
+    IEnumerator FadeOutToNextScene(int nextSceneIndex)
     {
-        StartCoroutine(FadeOut(nextSceneIndex));
-    }
-
-    public void OnNextLevelPressed()
-    {
-        FadeSceneOut(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void OnRetryPressed()
-    {
-        FadeSceneOut(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void OnMainMenuPressed()
-    {
-        FadeSceneOut(0);
+        yield return Fade(1f, 0f);
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     IEnumerator Fade(float start, float end)
@@ -45,9 +31,22 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut(int nextSceneIndex)
+    #region Button Functions
+
+    public void OnNextLevelPressed()
     {
-        yield return Fade(1f, 0f);
-        SceneManager.LoadScene(nextSceneIndex);
+        StartCoroutine(FadeOutToNextScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
+
+    public void OnRetryPressed()
+    {
+        StartCoroutine(FadeOutToNextScene(SceneManager.GetActiveScene().buildIndex));
+    }
+
+    public void OnMainMenuPressed()
+    {
+        StartCoroutine(FadeOutToNextScene(0));
+    }
+
+    #endregion
 }
