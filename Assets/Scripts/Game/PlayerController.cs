@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
         try
         {
-            FindObjectOfType<Goal>().levelClearedAction += OnLevelClear;
+            FindObjectOfType<Goal>().LevelClearedAction += OnLevelClear;
         }
         catch(System.NullReferenceException)
         {
