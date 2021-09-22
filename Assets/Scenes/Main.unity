@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -155,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -420,7 +420,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -948,7 +948,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -1445,7 +1445,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -1710,7 +1710,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -2376,7 +2376,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -2641,7 +2641,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -2942,7 +2942,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -3197,7 +3197,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -3462,7 +3462,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -4059,7 +4059,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -4324,7 +4324,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -4706,7 +4706,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -4995,7 +4995,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6127,7 +6127,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
@@ -6574,7 +6574,7 @@ PrefabInstance:
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeSceneOut
+      value: OnLevelSelectPressed
       objectReference: {fileID: 0}
     - target: {fileID: 3157790018804572941, guid: 676a4ef2867184a44a4c12ae837b8843,
         type: 3}
