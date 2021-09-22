@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class ClearMenu : Menu
 {
@@ -10,8 +9,8 @@ public class ClearMenu : Menu
     {
         base.Awake();
 
-        FindObjectOfType<Goal>().levelClearedAction += OnLevelClear;
         nextLevelButton = GetComponentsInChildren<Button>()[0].gameObject;
+        FindObjectOfType<Goal>().LevelClearedAction += OnLevelClear;
     }
     
     void OnLevelClear()

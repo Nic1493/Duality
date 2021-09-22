@@ -3,22 +3,18 @@
 public class Goal : MonoBehaviour
 {
     int playerCount = 0;
-    public event System.Action levelClearedAction;
+    public event System.Action LevelClearedAction;
 
     void OnTriggerEnter2D(Collider2D col)
     {
         playerCount++;
-        Debug.Log("Entered");
 
         if (playerCount == 2)
-        {
-            levelClearedAction?.Invoke();
-        }
+            LevelClearedAction?.Invoke();
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
         playerCount--;
-        Debug.Log("Exited");
     }
 }
