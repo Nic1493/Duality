@@ -33,6 +33,11 @@ public class SceneTransition : MonoBehaviour
 
     #region Button Functions
 
+    public void OnLevelSelectPressed(int sceneIndex)
+    {
+        StartCoroutine(FadeOutToNextScene(sceneIndex));
+    }
+
     public void OnNextLevelPressed()
     {
         StartCoroutine(FadeOutToNextScene(SceneManager.GetActiveScene().buildIndex + 1));
