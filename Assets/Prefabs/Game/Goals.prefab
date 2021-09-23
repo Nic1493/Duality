@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2519cba1a621b54da35ecd2dfc9ffca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelClearCount: {fileID: 11400000, guid: c147d676fa5cf4a43af64ca0afb86082, type: 2}
 --- !u!1 &7442785329541320412
 GameObject:
   m_ObjectHideFlags: 0
