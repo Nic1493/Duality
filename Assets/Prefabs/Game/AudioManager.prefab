@@ -64,3 +64,4 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  volume: {fileID: 11400000, guid: 356f0e2087e40a440967d9c47090013d, type: 2}
