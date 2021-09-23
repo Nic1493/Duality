@@ -3,6 +3,7 @@
 public class Goal : MonoBehaviour
 {
     Animator[] anims;
+    [SerializeField] IntObject levelClearCount;
 
     int playerCount = 0;
     bool levelCleared = false;
@@ -47,6 +48,7 @@ public class Goal : MonoBehaviour
         foreach (var anim in anims)
         {
             anim.enabled = false;
+            levelClearCount.value++;
             FindObjectOfType<AudioManager>().Play("TwoInGoal");
         }
     }
