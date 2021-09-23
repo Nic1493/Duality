@@ -9,17 +9,22 @@ public class UnlockLevel : MonoBehaviour
     [SerializeField] Button[] buttons;
     int lastLevelUnlocked = 0;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
         EnableLevelButton();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     void EnableLevelButton()
     {
-        for (int i = 0; levelClearCount.value > i; i++)
+        for (int i = 0; i <= levelClearCount.value; i++)
         {
-            buttons[].enabled();
+            buttons[i].GetComponent<Button>().enabled = true;
         }
     }
 }

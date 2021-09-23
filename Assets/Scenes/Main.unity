@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1423,7 +1423,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958875840b785304ebd6b7e5e08ee5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSettings: {fileID: 0}
+  levelClearCount: {fileID: 11400000, guid: c147d676fa5cf4a43af64ca0afb86082, type: 2}
+  buttons:
+  - {fileID: 280437756}
+  - {fileID: 215669672}
+  - {fileID: 638185445}
+  - {fileID: 811674703}
+  - {fileID: 1942409684}
+  - {fileID: 647842017}
+  - {fileID: 62452489}
+  - {fileID: 549530347}
+  - {fileID: 1715964869}
+  - {fileID: 532798304}
+  - {fileID: 785941849}
+  - {fileID: 267818222}
+  - {fileID: 1895009251}
+  - {fileID: 928800743}
 --- !u!1001 &574500600
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class Goal : MonoBehaviour
         foreach (var anim in anims)
         {
             anim.enabled = false;
-            levelClearCount.value++;
+            levelClearCount.value = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
             FindObjectOfType<AudioManager>().Play("TwoInGoal");
         }
     }
