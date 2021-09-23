@@ -12,11 +12,14 @@ public class PlayerController : MonoBehaviour
     IEnumerator inputDelayCoroutine;
     const float InputRepeatDelay = 0.25f;
 
+    public event System.Action OnMovementAction;
+
     void Awake()
     {
         //set moveDistance to always equal sprite's dimensions
         moveDistance = GetComponent<SpriteRenderer>().bounds.size;
         GetComponent<BoxCollider2D>().size = moveDistance / 2;
+        OnMovementAction += OnMovementInput;
 
         try
         {
@@ -83,6 +86,7 @@ public class PlayerController : MonoBehaviour
             float currentLerpTime = 0;
             Vector2 startPos = transform.position;
             Vector2 endPos = (Vector2)transform.position + (direction * moveDistance);
+            OnMovementAction?.Invoke();
 
             while (currentLerpTime < MoveDuration)
             {
@@ -93,6 +97,10 @@ public class PlayerController : MonoBehaviour
             }
         }
         moveCoroutine = null;
+    }
+    void OnMovementInput()
+    {
+        FindObjectOfType<AudioManager>().Play("Movement");
     }
 
     void OnLevelClear()
