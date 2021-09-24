@@ -3,11 +3,10 @@
 public class Goal : MonoBehaviour
 {
     Animator[] anims;
-    [SerializeField] IntObject levelClearCount;
 
-    int playerCount = 0;
-    bool levelCleared = false;
+    int playersInGoal = 0;
     public event System.Action LevelClearedAction;
+    [SerializeField] IntObject levelClearCount;
 
     void Awake()
     {
@@ -17,24 +16,24 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        playerCount++;
+        playersInGoal++;
 
-        if (playerCount == 2)
+        if (playersInGoal == 2)
         {
             LevelClearedAction?.Invoke();
-            print(playerCount);
+            print(playersInGoal);
         }
         
-        if (playerCount == 1 && false)
+        if (playersInGoal == 1 && false)
         {
             OnePlayerEnterGoal();
-            print(playerCount);
+            print(playersInGoal);
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        playerCount--;
+        playersInGoal--;
     }
 
     void OnePlayerEnterGoal()
@@ -44,7 +43,6 @@ public class Goal : MonoBehaviour
 
     void OnLevelClear()
     {
-        levelCleared = true;
         foreach (var anim in anims)
         {
             anim.enabled = false;
