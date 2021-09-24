@@ -1,39 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using TMPro;
 
 public class MoveCounter : MonoBehaviour
 {
-    [SerializeField]
-    PlayerController whitePlayerController;
+    [SerializeField] TextMeshProUGUI moveCounterText;
+    [SerializeField] IntObject moveCounter;
 
-    [SerializeField]
-    PlayerController blackPlayerController;
-
-    Text movementCounterText;
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        movementCounterText = GetComponentInChildren<Text>();
+        FindObjectOfType<PlayerController>().MoveAction += OnPlayerMove;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
+        moveCounter.value = 0;
+
+        // just in case moveCounter.text is not initialized to "0"
+        UpdateText();
+    }
+
+    void OnPlayerMove()
+    {
+        moveCounter.value++;
         UpdateText();
     }
 
     void UpdateText()
     {
-        if (whitePlayerController.moveCount <= blackPlayerController.moveCount)
-        {
-            movementCounterText.text = "Move Counter: " + blackPlayerController.moveCount;
-        }
-        else
-        {
-            movementCounterText.text = "Move Counter: " + whitePlayerController.moveCount;
-        }
+        moveCounterText.text = moveCounter.value.ToString();
     }
 }

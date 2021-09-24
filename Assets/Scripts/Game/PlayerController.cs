@@ -4,44 +4,42 @@ using static CoroutineHelper;
 
 public class PlayerController : MonoBehaviour
 {
+    const int PlayerCount = 2;
+    Player[] players = new Player[PlayerCount];
+
+    Vector2 inputDirection;
+
+    public event System.Action MoveAction;
+
     IEnumerator moveCoroutine;
-    Vector2 moveDirection;
-    Vector2 moveDistance;
     const float MoveDuration = 0.1f;
-    public int moveCount = 0;
 
     IEnumerator inputDelayCoroutine;
     const float InputRepeatDelay = 0.25f;
 
-    public event System.Action OnMovementAction;
-
     void Awake()
     {
-        //set moveDistance to always equal sprite's dimensions
-        moveDistance = GetComponent<SpriteRenderer>().bounds.size;
-        GetComponent<BoxCollider2D>().size = moveDistance / 2;
-        OnMovementAction += OnMovementInput;
-
+        players = GetComponentsInChildren<Player>();
         FindObjectOfType<Goal>().PlayerInGoalAction += OnPlayerEnterGoal;
     }
 
     void Update()
     {
-        UpdateMoveDirection();
+        GetMoveDirection();
 
-        if (moveDirection.x != 0 || moveDirection.y != 0)
+        if (inputDirection.x != 0 || inputDirection.y != 0)
         {
             if (moveCoroutine == null && inputDelayCoroutine == null)
             {
                 inputDelayCoroutine = Wait(InputRepeatDelay);
                 StartCoroutine(inputDelayCoroutine);
 
-                moveCoroutine = Move(moveDirection);
+                moveCoroutine = Move(inputDirection);
                 StartCoroutine(moveCoroutine);
             }
         }
 
-        if (moveDirection == Vector2.zero)
+        if (inputDirection == Vector2.zero)
         {
             if (inputDelayCoroutine != null)
             {
@@ -51,20 +49,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void UpdateMoveDirection()
+    void GetMoveDirection()
     {
-        moveDirection.x = Input.GetAxisRaw("Horizontal");
-        moveDirection.y = Input.GetAxisRaw("Vertical");
+        inputDirection.x = Input.GetAxisRaw("Horizontal");
+        inputDirection.y = Input.GetAxisRaw("Vertical");
 
         //prioritize y-axis if both direction.x and .y are changed
-        if (Mathf.Abs(moveDirection.x) > Mathf.Abs(moveDirection.y)) moveDirection.y = 0;
-        else moveDirection.x = 0;
-    }
-
-    bool IsTouchingCollider()
-    {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, moveDistance / 2, 0, moveDirection, (moveDirection * moveDistance).magnitude / 2);
-        return hit.collider != null;
+        if (Mathf.Abs(inputDirection.x) > Mathf.Abs(inputDirection.y))
+            inputDirection.y = 0;
+        else
+            inputDirection.x = 0;
     }
 
     IEnumerator Wait(float amount)
@@ -75,33 +69,33 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Move(Vector2 direction)
     {
-        if (!IsTouchingCollider())
+        //invoke MoveAction once if either player can move
+        foreach (var player in players)
         {
-            float currentLerpTime = 0;
-            Vector2 startPos = transform.position;
-            Vector2 endPos = (Vector2)transform.position + (direction * moveDistance);
-            OnMovementAction?.Invoke();
-
-            while (currentLerpTime < MoveDuration)
+            if (!player.IsTouchingCollider(direction))
             {
-                yield return EndOfFrame;
-                currentLerpTime += Time.deltaTime;
-
-                transform.position = Vector2.Lerp(startPos, endPos, currentLerpTime / MoveDuration);
+                MoveAction?.Invoke();
+                break;
             }
         }
+
+        //start move coroutine for all players that can move
+        foreach (var player in players)
+        {
+            if (!player.IsTouchingCollider(direction))
+            {
+                StartCoroutine(player.Move(direction));
+            }
+        }
+
+        yield return WaitForSeconds(MoveDuration);
+
         moveCoroutine = null;
-    }
-    void OnMovementInput()
-    {
-        moveCount++;
-        print(moveCount);
-        FindObjectOfType<AudioManager>().Play("Movement");
     }
 
     void OnPlayerEnterGoal(int playerCount)
     {
-        if (playerCount == 2)
+        if (playerCount == PlayerCount)
             enabled = false;
     }
 }

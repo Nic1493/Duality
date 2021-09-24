@@ -16,7 +16,13 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
         }
 
+        FindObjectOfType<PlayerController>().MoveAction += OnPlayerMove;
         FindObjectOfType<Goal>().PlayerInGoalAction += OnPlayerEnterGoal;
+    }
+    
+    void OnPlayerMove()
+    {
+        Play("Movement");
     }
 
     void OnPlayerEnterGoal(int playerCount)
@@ -39,7 +45,7 @@ public class AudioManager : MonoBehaviour
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class Sound
 {
     public string name;
