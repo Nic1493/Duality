@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: ButtonInput
+    clip: {fileID: 8300000, guid: 979d1987aa56be045b6a92335aca3d60, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   - name: Movement
     clip: {fileID: 8300000, guid: f3349bf76e50fb44e8eb8a142fda1fd1, type: 3}
     volume: 1
@@ -56,11 +61,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TwoInGoal
     clip: {fileID: 8300000, guid: 64574a8389db9c843aeb850eae48d615, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: ButtonInput
-    clip: {fileID: 8300000, guid: 979d1987aa56be045b6a92335aca3d60, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}

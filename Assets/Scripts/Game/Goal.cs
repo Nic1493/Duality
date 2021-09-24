@@ -5,30 +5,19 @@ public class Goal : MonoBehaviour
     Animator[] anims;
 
     int playersInGoal = 0;
-    public event System.Action LevelClearedAction;
+    public event System.Action<int> PlayerInGoalAction;
     [SerializeField] IntObject levelClearCount;
 
     void Awake()
     {
         anims = GetComponentsInChildren<Animator>();
-        LevelClearedAction += OnLevelClear;
+        PlayerInGoalAction += OnPlayerEnterGoal;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         playersInGoal++;
-
-        if (playersInGoal == 2)
-        {
-            LevelClearedAction?.Invoke();
-            print(playersInGoal);
-        }
-        
-        if (playersInGoal == 1 && false)
-        {
-            OnePlayerEnterGoal();
-            print(playersInGoal);
-        }
+        PlayerInGoalAction?.Invoke(playersInGoal);
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -36,18 +25,15 @@ public class Goal : MonoBehaviour
         playersInGoal--;
     }
 
-    void OnePlayerEnterGoal()
+    void OnPlayerEnterGoal(int playerCount)
     {
-        FindObjectOfType<AudioManager>().Play("OneInGoal");
-    }
-
-    void OnLevelClear()
-    {
-        foreach (var anim in anims)
+        if (playersInGoal == 2)
         {
-            anim.enabled = false;
-            levelClearCount.value = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-            FindObjectOfType<AudioManager>().Play("TwoInGoal");
+            foreach (var anim in anims)
+            {
+                anim.enabled = false;
+                levelClearCount.value = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            }
         }
     }
 }

@@ -10,11 +10,12 @@ public class ClearMenu : Menu
         base.Awake();
 
         nextLevelButton = GetComponentsInChildren<Button>()[0].gameObject;
-        FindObjectOfType<Goal>().LevelClearedAction += OnLevelClear;
+        FindObjectOfType<Goal>().PlayerInGoalAction += OnPlayerEnterGoal;
     }
     
-    void OnLevelClear()
+    void OnPlayerEnterGoal(int playerCount)
     {
-        Open(nextLevelButton);
+        if (playerCount == 2)
+            Open(nextLevelButton);
     }
 }

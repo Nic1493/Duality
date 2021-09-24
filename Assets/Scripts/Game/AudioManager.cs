@@ -15,9 +15,19 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
+
+        FindObjectOfType<Goal>().PlayerInGoalAction += OnPlayerEnterGoal;
     }
 
-    public void Play (string name)
+    void OnPlayerEnterGoal(int playerCount)
+    {
+        if (playerCount == 2)
+            Play("TwoInGoal");
+        else
+            Play("OneInGoal");
+    }
+
+    public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
@@ -28,3 +38,21 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 }
+
+[System.Serializable]
+public class Sound
+{
+    public string name;
+
+    public AudioClip clip;
+
+    [Range(0f, 1f)]
+    public float volume;
+
+    [Range(0.1f, 3f)]
+    public float pitch;
+
+    [HideInInspector]
+    public AudioSource source;
+}
+

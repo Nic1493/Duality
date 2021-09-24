@@ -21,14 +21,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<BoxCollider2D>().size = moveDistance / 2;
         OnMovementAction += OnMovementInput;
 
-        try
-        {
-            FindObjectOfType<Goal>().LevelClearedAction += OnLevelClear;
-        }
-        catch(System.NullReferenceException)
-        {
-            Debug.LogError("no goal found in level.");
-        }
+        FindObjectOfType<Goal>().PlayerInGoalAction += OnPlayerEnterGoal;
     }
 
     void Update()
@@ -103,8 +96,9 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Movement");
     }
 
-    void OnLevelClear()
+    void OnPlayerEnterGoal(int playerCount)
     {
-        enabled = false;
+        if (playerCount == 2)
+            enabled = false;
     }
 }
