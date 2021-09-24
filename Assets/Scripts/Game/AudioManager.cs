@@ -1,12 +1,11 @@
-﻿using UnityEngine.Audio;
-using System;
+﻿using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    [SerializeField] Sound[] sounds;
+    [SerializeField] IntObject volume;
 
-    // Start is called before the first frame update
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -21,8 +20,11 @@ public class AudioManager : MonoBehaviour
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+
         if (s == null)
             return;
+
+        s.source.volume = volume.value / 10f;
         s.source.Play();
     }
 }
