@@ -50,17 +50,17 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Movement
-    clip: {fileID: 8300000, guid: f3349bf76e50fb44e8eb8a142fda1fd1, type: 3}
+    clip: {fileID: 8300000, guid: 851e8be9c2e4da64c8f8fcf55a057a88, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: OneInGoal
-    clip: {fileID: 8300000, guid: 0dd828e4b0b3b324faec9d41f0042930, type: 3}
+    clip: {fileID: 8300000, guid: a1e85ecd4ec5c6843930cc48c2baf112, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: TwoInGoal
-    clip: {fileID: 8300000, guid: 64574a8389db9c843aeb850eae48d615, type: 3}
+    clip: {fileID: 8300000, guid: 69dfdb5f78188bd41ad86f7f3c4a3ebe, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
