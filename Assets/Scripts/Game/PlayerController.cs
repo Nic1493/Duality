@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection;
     Vector2 moveDistance;
     const float MoveDuration = 0.1f;
+    public int moveCount = 0;
 
     IEnumerator inputDelayCoroutine;
     const float InputRepeatDelay = 0.25f;
@@ -93,6 +94,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnMovementInput()
     {
+        moveCount++;
+        print(moveCount);
         FindObjectOfType<AudioManager>().Play("Movement");
     }
 
