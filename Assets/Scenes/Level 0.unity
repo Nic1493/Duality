@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2517,18 +2517,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d21b8b0fe68b8fe4988b7a25d54506bf, type: 3}
---- !u!114 &1746126459 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3044883418373192326, guid: d21b8b0fe68b8fe4988b7a25d54506bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1746126458}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5534332ad52e546955e87623f38c41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1864323600
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,20 +3820,50 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4963590145035535692, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+    - target: {fileID: 8012061770176165453, guid: 85832f1edb9c6b9479bd4bbea7d69330,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1746126459}
-    - target: {fileID: 4963590143998899895, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012061770176165453, guid: 85832f1edb9c6b9479bd4bbea7d69330,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1746126459}
-    - target: {fileID: 4963590145870941026, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012061768504462193, guid: 85832f1edb9c6b9479bd4bbea7d69330,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1746126459}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012061768504462193, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012061768796427800, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012061768796427800, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963590144826827676, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963590143800660071, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963590144572726857, guid: 85832f1edb9c6b9479bd4bbea7d69330,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85832f1edb9c6b9479bd4bbea7d69330, type: 3}
