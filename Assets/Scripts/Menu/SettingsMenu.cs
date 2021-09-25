@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsMenu : Menu
 {
     [SerializeField] PlayerSettings playerSettings;
     [SerializeField] Button backButton;
     [SerializeField] Slider volumeSlider;
+    [SerializeField] TextMeshProUGUI volumeText;
 
     protected override void Awake()
     {
@@ -26,6 +28,7 @@ public class SettingsMenu : Menu
     public void OnChangeVolume()
     {
         playerSettings.Volume = (int)volumeSlider.value;
+        volumeText.text = playerSettings.Volume.ToString();
         UpdateVolumeSlider();
     }
 
