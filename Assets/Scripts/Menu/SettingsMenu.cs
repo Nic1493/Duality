@@ -23,12 +23,12 @@ public class SettingsMenu : Menu
     void UpdateVolumeSlider()
     {
         volumeSlider.value = playerSettings.Volume;
+        volumeText.text = playerSettings.Volume.ToString();
     }
 
     public void OnChangeVolume()
     {
         playerSettings.Volume = (int)volumeSlider.value;
-        volumeText.text = playerSettings.Volume.ToString();
         UpdateVolumeSlider();
     }
 
