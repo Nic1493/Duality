@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c5a1f896560ee22479c74550904865f6
+guid: b9ea9018d3ddad042a54274d3c47f4b9
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Nasalization
+  fontName: Imagine Font
   fontNames:
-  - Nasalization
+  - Imagine Font
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
