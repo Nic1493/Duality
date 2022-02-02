@@ -1,20 +1,33 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelectMenu : Menu
 {
-    [SerializeField] Canvas mainMenu;
+    [SerializeField] Button backButton;
 
-    public void OnSelectLevel(int levelIndex)
+    Button[] levelSelectButtons;
+    [SerializeField] IntObject levelClearCount;
+
+    protected override void Awake()
     {
-        SceneManager.LoadScene(levelIndex + 1);
+        base.Awake();
+
+        levelSelectButtons = GetComponentsInChildren<Button>();
+        Array.Resize(ref levelSelectButtons, 16);
+    }
+
+    void OnEnable()
+    {
+        for (int i = 0; i < levelSelectButtons.Length; i++)
+        {
+            levelSelectButtons[i].enabled = i <= Mathf.Max(1, levelClearCount.value);
+        }
     }
 
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))
-        {
-            SwitchMenu(mainMenu);
-        }
+            backButton.OnPointerClick(eventData);
     }
 }
